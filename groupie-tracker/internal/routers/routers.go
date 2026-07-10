@@ -5,8 +5,8 @@ import (
 	"net/http"
 )
 
-func Routers() {
+func Routers() *http.ServeMux {
 	r := http.NewServeMux()
-
 	r.HandleFunc("GET /{$}", handlers.HomeHandler)
+	return r
 }

@@ -6,10 +6,10 @@ import (
 	"net/http"
 )
 
-var tmpl = template.Must(template.ParseFiles("artist.html"))
+var tmpl = template.Must(template.ParseFiles("../templates/artist.html"))
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
-	err := tmpl.ExecuteTemplate(w, "artist.html", config.ArtistsData)
+	err := tmpl.ExecuteTemplate(w, "artist.html", config.Artists)
 
 	if err != nil {
 		http.Error(w, "Error Loading Page", http.StatusInternalServerError)

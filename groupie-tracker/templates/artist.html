@@ -15,9 +15,16 @@
 
     <!-- card Section -->
      <section>
-        <div>
-            {{image}}
+        {{range .}}
+        <div id="{{.ID}}">
+            <img src="{{.Image}}" alt="Band Image">
+            <h3>{{.Name}}</h3>
         </div>
+        {{else}}
+        <div>
+            <p>No artist found</p>
+        </div>
+        {{end}}
     </section>
 </body>
 </html>

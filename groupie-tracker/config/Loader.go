@@ -8,16 +8,16 @@ import (
 )
 
 var ArtistsData = make(map[int]*Artist)
+var Artists []Artist
 
 func Loader() {
-	var artists []Artist
 	var relations RelationsIndex
 
-	LoadAPI("https://groupietrackers.herokuapp.com/api/artists", &artists)
+	LoadAPI("https://groupietrackers.herokuapp.com/api/artists", &Artists)
 	LoadAPI("https://groupietrackers.herokuapp.com/api/relation", &relations)
 
-	for i := range artists {
-		art := artists[i]
+	for i := range Artists {
+		art := Artists[i]
 		ArtistsData[art.ID] = &art
 	}
 
@@ -27,7 +27,7 @@ func Loader() {
 		}
 	}
 
-	fmt.Println("artists", artists)
+	fmt.Println("artists", Artists)
 	fmt.Println("------------------------")
 	art := *ArtistsData[1]
 	fmt.Println("artistData", art)
