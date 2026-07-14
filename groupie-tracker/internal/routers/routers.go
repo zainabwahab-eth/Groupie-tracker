@@ -8,5 +8,6 @@ import (
 func Routers() *http.ServeMux {
 	r := http.NewServeMux()
 	r.HandleFunc("GET /{$}", handlers.HomeHandler)
+	r.HandleFunc("GET /artist/{id}", handlers.ArtistHandler)
 	return r
 }

@@ -2,7 +2,6 @@ package config
 
 import (
 	"encoding/json"
-	"fmt"
 	"log"
 	"net/http"
 )
@@ -27,10 +26,10 @@ func Loader() {
 		}
 	}
 
-	fmt.Println("artists", Artists)
-	fmt.Println("------------------------")
-	art := *ArtistsData[1]
-	fmt.Println("artistData", art)
+	// fmt.Println("artists", Artists)
+	// fmt.Println("------------------------")
+	// art := *ArtistsData[1]
+	// fmt.Println("artistData", art)
 
 }
 

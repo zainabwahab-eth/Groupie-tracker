@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.10/dist/htmx.min.js" 
+          integrity="sha384-H5SrcfygHmAuTDZphMHqBJLc3FhssKjG7w/CeCpFReSfwBWDTKpkzPP8c+cLsK+V"
+          crossorigin="anonymous">
+    </script>
     <title>Artist Page</title>
 </head>
 <body>
@@ -16,7 +20,11 @@
     <!-- card Section -->
      <section>
         {{range .}}
-        <div id="{{.ID}}">
+        <div id="{{.ID}}"
+            hx-get="/artist/{{ .ID }}"
+            hx-target="#artist-modal"
+            hx-swap="innerHTML"
+        >
             <img src="{{.Image}}" alt="Band Image">
             <h3>{{.Name}}</h3>
         </div>
@@ -26,5 +34,7 @@
         </div>
         {{end}}
     </section>
+
+    <div id="artist-modal"></div>
 </body>
 </html>
